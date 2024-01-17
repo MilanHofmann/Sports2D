@@ -86,7 +86,7 @@ def display_figures_fun(df_list):
 
     keypoints_names = df_list[0].columns.get_level_values(2)[1::3]
     
-    pw = common.plotWindow()
+    # pw = common.plotWindow()
     for id, keypoint in enumerate(keypoints_names):
         f = plt.figure()
         
@@ -101,9 +101,9 @@ def display_figures_fun(df_list):
         axY.set_xlabel('Time (seconds)')
         axY.set_ylabel(keypoint+' Y')
 
-        pw.addPlot(keypoint, f)
+        # pw.addPlot(keypoint, f)
     
-    pw.show()
+    # pw.show()
     
 
 def run_openpose_windows(video_path, json_path, pose_model):
@@ -359,7 +359,7 @@ def json_to_csv(json_path, frame_rate, pose_model, interp_gap_smaller_than, filt
         # Display figures
         if show_plots:
             logging.info(f'Person {i}: Displaying figures.')
-            display_figures_fun(df_list)
+            # display_figures_fun(df_list)
             
 
 def draw_bounding_box(X, Y, img):

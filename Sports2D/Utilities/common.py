@@ -17,9 +17,9 @@
 ## INIT
 import sys
 import numpy as np
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QTabWidget, QVBoxLayout
+# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+# from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QTabWidget, QVBoxLayout
 from scipy import interpolate
 
 
@@ -35,56 +35,56 @@ __status__ = "Development"
 
 
 ## CLASSES
-class plotWindow():
-    '''
-    Display several figures in tabs
-    Taken from https://github.com/superjax/plotWindow/blob/master/plotWindow.py
-
-    USAGE:
-    pw = plotWindow()
-    f = plt.figure()
-    plt.plot(x1, y1)
-    pw.addPlot("1", f)
-    f = plt.figure()
-    plt.plot(x2, y2)
-    pw.addPlot("2", f)
-    '''
-
-    def __init__(self, parent=None):
-        self.app = QApplication(sys.argv)
-        self.MainWindow = QMainWindow()
-        self.MainWindow.__init__()
-        self.MainWindow.setWindowTitle("Multitabs figure")
-        self.canvases = []
-        self.figure_handles = []
-        self.toolbar_handles = []
-        self.tab_handles = []
-        self.current_window = -1
-        self.tabs = QTabWidget()
-        self.MainWindow.setCentralWidget(self.tabs)
-        self.MainWindow.resize(1280, 720)
-        self.MainWindow.show()
-
-    def addPlot(self, title, figure):
-        new_tab = QWidget()
-        layout = QVBoxLayout()
-        new_tab.setLayout(layout)
-
-        figure.subplots_adjust(left=0.1, right=0.99, bottom=0.1, top=0.91, wspace=0.2, hspace=0.2)
-        new_canvas = FigureCanvas(figure)
-        new_toolbar = NavigationToolbar(new_canvas, new_tab)
-
-        layout.addWidget(new_canvas)
-        layout.addWidget(new_toolbar)
-        self.tabs.addTab(new_tab, title)
-
-        self.toolbar_handles.append(new_toolbar)
-        self.canvases.append(new_canvas)
-        self.figure_handles.append(figure)
-        self.tab_handles.append(new_tab)
-
-    def show(self):
-        self.app.exec_() 
+# class plotWindow():
+#     '''
+#     Display several figures in tabs
+#     Taken from https://github.com/superjax/plotWindow/blob/master/plotWindow.py
+#
+#     USAGE:
+#     pw = plotWindow()
+#     f = plt.figure()
+#     plt.plot(x1, y1)
+#     pw.addPlot("1", f)
+#     f = plt.figure()
+#     plt.plot(x2, y2)
+#     pw.addPlot("2", f)
+#     '''
+#
+#     def __init__(self, parent=None):
+#         self.app = QApplication(sys.argv)
+#         self.MainWindow = QMainWindow()
+#         self.MainWindow.__init__()
+#         self.MainWindow.setWindowTitle("Multitabs figure")
+#         self.canvases = []
+#         self.figure_handles = []
+#         self.toolbar_handles = []
+#         self.tab_handles = []
+#         self.current_window = -1
+#         self.tabs = QTabWidget()
+#         self.MainWindow.setCentralWidget(self.tabs)
+#         self.MainWindow.resize(1280, 720)
+#         self.MainWindow.show()
+#
+#     def addPlot(self, title, figure):
+#         new_tab = QWidget()
+#         layout = QVBoxLayout()
+#         new_tab.setLayout(layout)
+#
+#         figure.subplots_adjust(left=0.1, right=0.99, bottom=0.1, top=0.91, wspace=0.2, hspace=0.2)
+#         new_canvas = FigureCanvas(figure)
+#         new_toolbar = NavigationToolbar(new_canvas, new_tab)
+#
+#         layout.addWidget(new_canvas)
+#         layout.addWidget(new_toolbar)
+#         self.tabs.addTab(new_tab, title)
+#
+#         self.toolbar_handles.append(new_toolbar)
+#         self.canvases.append(new_canvas)
+#         self.figure_handles.append(figure)
+#         self.tab_handles.append(new_tab)
+#
+#     def show(self):
+#         self.app.exec_()
         
         
 ## FUNCTIONS
